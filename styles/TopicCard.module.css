@@ -1,0 +1,36 @@
+.topicCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+
+}
+
+.topicCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topicImage {
+    border-radius: 8px;
+}
+
+.topicFooter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    color: black;
+    background-color: #00baff;
+    border-radius: 5%;
+    padding: 0.25rem ;
+}
