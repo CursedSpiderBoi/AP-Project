@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Header from '@/components/home/header';
 import Section from '@/components/home/Section';
 
@@ -10,6 +11,9 @@ export default function Home() {
 
   return (
     <div className="container">
+      <Head>
+        <title>Home Page</title>
+      </Head>
       <Header />
       <main>
         <h2>Welcome,</h2>

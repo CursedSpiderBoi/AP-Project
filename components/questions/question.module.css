@@ -1,0 +1,27 @@
+/* Question.css */
+
+.question-module {
+    background: linear-gradient(to right, #1e1b4b, #3b82f6);
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .question-prefix {
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .question-module {
+      padding: 1.25rem;
+    }
+  }

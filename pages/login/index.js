@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import styles from '@/styles/login.module.css';
+import fs from 'fs';
+import path from 'path';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -11,8 +13,21 @@ export default function Login() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const router = useRouter();
 
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    };
+
+    const validatePassword = (password) => {
+        return password.length >= 8;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validatePassword(password)) {
+            setError('Password must be at least 8 characters long');
+            return;
+        }
         const result = await signIn('credentials', {
             redirect: false,
             email,
@@ -27,19 +42,20 @@ export default function Login() {
     };
 
     const checkEmail = async (email) => {
-        // Dummy API call to check if email exists
-        const response = await fetch('/api/check-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email })
-        });
-        return response.json();
+        const filePath = path.join(process.cwd(), 'data', 'users.json');
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const users = JSON.parse(fileContents);
+
+        const userExists = users.some(user => user.email === email);
+        return { exists: userExists };
     };
 
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
+        if (!validateEmail(email)) {
+            setError('Invalid email format');
+            return;
+        }
         const result = await checkEmail(email);
 
         if (result.exists) {
@@ -53,6 +69,10 @@ export default function Login() {
         e.preventDefault();
         if (password !== confirmPassword) {
             setError('Passwords do not match');
+            return;
+        }
+        if (!validatePassword(password)) {
+            setError('Password must be at least 8 characters long');
             return;
         }
         // Dummy API call to create account
@@ -80,6 +100,7 @@ export default function Login() {
                     email={email}
                     setEmail={setEmail}
                     handleEmailSubmit={handleEmailSubmit}
+                    error={error}
                     styles={styles}
                 />
             )}
@@ -107,7 +128,7 @@ export default function Login() {
     );
 }
 
-function EmailForm({ email, setEmail, handleEmailSubmit, styles }) {
+function EmailForm({ email, setEmail, handleEmailSubmit, error, styles }) {
     return (
         <form onSubmit={handleEmailSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
@@ -121,6 +142,7 @@ function EmailForm({ email, setEmail, handleEmailSubmit, styles }) {
                     className={styles.input}
                 />
             </div>
+            {error && <p className={styles.error}>{error}</p>}
             <button type="submit" className={styles.button}>Next</button>
         </form>
     );

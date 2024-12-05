@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import '@/styles/landing_page.module.css';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Head from "next/head";
+import React, { useState } from "react";
+import "@/styles/landing_page.module.css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const CompleteLanding = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,10 +12,10 @@ const CompleteLanding = () => {
     "So Here We Are Speaking Random Shii Again And Again. So Here We Are Speaking Random Shii Again And Again. So Here We Are Speaking Random Shii Again And Again.",
     "So Here We Are Speaking Random Shii Again And Again. So Here We Are Speaking Random Shii Again And Again.",
     "So Here We Are Speaking Random Shii Again And Again. So Here We Are Speaking Random Shii Again And Again.",
-    "So Here We Are Speaking Random Shii Again And Again."
+    "So Here We Are Speaking Random Shii Again And Again.",
   ];
   function join() {
-    router.push('/home');
+    router.push("/login");
   }
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -26,6 +27,9 @@ const CompleteLanding = () => {
 
   return (
     <div className="wrapper">
+      <Head>
+        <title>Landing Page</title>
+      </Head>
       <div className="cognify-container">
         {/* Cognify Section */}
         <section className="cognify-section">
@@ -38,12 +42,8 @@ const CompleteLanding = () => {
 
           {/* Logo Section */}
           <div className="logo-section">
-            <div className="logo-text">
-              Cognify
-            </div>
-            <h2 className="tagline">
-              Assisting your growth, step by step
-            </h2>
+            <div className="logo-text">Cognify</div>
+            <h2 className="tagline">Assisting your growth, step by step</h2>
           </div>
 
           {/* Content Section */}
@@ -51,9 +51,7 @@ const CompleteLanding = () => {
             <div className="content-container">
               {/* First Card */}
               <div className="content-card">
-                <p className="content-text">
-                  {slides[0]}
-                </p>
+                <p className="content-text">{slides[0]}</p>
               </div>
               {/* First Book Image */}
               <div className="book-container">
@@ -74,23 +72,15 @@ const CompleteLanding = () => {
             {/* Carousel Section */}
             <div className="carousel-section">
               <div className="carousel-container">
-                <button
-                  onClick={prevSlide}
-                  className="carousel-button"
-                >
+                <button onClick={prevSlide} className="carousel-button">
                   <ChevronLeft size={40} />
                 </button>
 
                 <div className="carousel-content">
-                  <p className="carousel-text">
-                    {slides[currentSlide]}
-                  </p>
+                  <p className="carousel-text">{slides[currentSlide]}</p>
                 </div>
 
-                <button
-                  onClick={nextSlide}
-                  className="carousel-button"
-                >
+                <button onClick={nextSlide} className="carousel-button">
                   <ChevronRight size={40} />
                 </button>
               </div>
@@ -101,8 +91,9 @@ const CompleteLanding = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`carousel-indicator ${currentSlide === index ? 'carousel-indicator-active' : ''
-                      }`}
+                    className={`carousel-indicator ${
+                      currentSlide === index ? "carousel-indicator-active" : ""
+                    }`}
                   />
                 ))}
               </div>
@@ -118,12 +109,11 @@ const CompleteLanding = () => {
                   Develop your skills in a new and unique way
                 </h1>
                 <p className="hero-text">
-                  Access a transformative approach to skill development on our online
-                  learning platform. Discover a new realm of learning experiences.
+                  Access a transformative approach to skill development on our
+                  online learning platform. Discover a new realm of learning
+                  experiences.
                 </p>
-                <button className="enroll-button">
-                  Enroll Now
-                </button>
+                <button className="enroll-button">Enroll Now</button>
               </div>
               <div className="hero-image-container">
                 <Image
@@ -141,8 +131,18 @@ const CompleteLanding = () => {
               {/* Feature 1 */}
               <div className="feature-card">
                 <div className="feature-icon-container">
-                  <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <svg
+                    className="feature-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
                   </svg>
                 </div>
                 <h3 className="feature-title">Interactive Learning</h3>
@@ -154,8 +154,18 @@ const CompleteLanding = () => {
               {/* Feature 2 */}
               <div className="feature-card">
                 <div className="feature-icon-container">
-                  <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="feature-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
                 <h3 className="feature-title">Expert Instructors</h3>
@@ -167,8 +177,18 @@ const CompleteLanding = () => {
               {/* Feature 3 */}
               <div className="feature-card">
                 <div className="feature-icon-container">
-                  <svg className="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="feature-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <h3 className="feature-title">Certified Programs</h3>
@@ -179,8 +199,6 @@ const CompleteLanding = () => {
             </div>
           </div>
         </section>
-
-
       </div>
     </div>
   );

@@ -1,0 +1,47 @@
+/* Option.css */
+
+
+.option-module {
+    display: inline-flex;
+    align-items: flex-start;
+    background: rgba(30, 27, 75, 0.9);
+    padding: 1.25rem;
+    border-radius: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 13vw; /* 13% of viewport width */
+    width: fit-content;
+    min-width: min-content;
+  }
+  
+  .option-module:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(37, 33, 93, 0.95);
+  }
+  
+  .option-number {
+    font-weight: 700;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+  
+  .option-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .option-module {
+      padding: 1.25rem;
+    }
+  }
+
+  .option-wrapper {
+    display: inline-block;
+    max-width: 100%;
+  }

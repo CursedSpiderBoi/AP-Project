@@ -1,0 +1,52 @@
+[
+    {
+        "topic": "Genetics",
+        "rating": 4.75,
+        "img": "https://example.com/images/genetics.jpg"
+    },
+    {
+        "topic": "Evolution",
+        "rating": 4.5,
+        "img": "https://example.com/images/evolution.jpg"
+    },
+    {
+        "topic": "Cell Biology",
+        "rating": 4.4,
+        "img": "https://example.com/images/cell_biology.jpg"
+    },
+    {
+        "topic": "Ecology",
+        "rating": 4.25,
+        "img": "https://example.com/images/ecology.jpg"
+    },
+    {
+        "topic": "Microbiology",
+        "rating": 4.35,
+        "img": "https://example.com/images/microbiology.jpg"
+    },
+    {
+        "topic": "Biochemistry",
+        "rating": 4.6,
+        "img": "https://example.com/images/biochemistry.jpg"
+    },
+    {
+        "topic": "Molecular Biology",
+        "rating": 4.65,
+        "img": "https://example.com/images/molecular_biology.jpg"
+    },
+    {
+        "topic": "Botany",
+        "rating": 4.0,
+        "img": "https://example.com/images/botany.jpg"
+    },
+    {
+        "topic": "Zoology",
+        "rating": 4.15,
+        "img": "https://example.com/images/zoology.jpg"
+    },
+    {
+        "topic": "Physiology",
+        "rating": 4.45,
+        "img": "https://example.com/images/physiology.jpg"
+    }
+]

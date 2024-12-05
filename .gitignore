@@ -38,3 +38,6 @@ bower_components/
 *.bak
 *.tmp
 *.temp
+
+#build files
+.next
